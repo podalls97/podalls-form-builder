@@ -29,22 +29,29 @@ bun add podalls-form-builder
 
 ## Quick Start
 
-### 1. Configure Tailwind
+### 1. Import Styles
 
-Add the package to your `tailwind.config.ts` content array:
+Add the package styles to your root CSS file:
+
+```css
+/* app/globals.css or src/app/globals.css */
+@import "tailwindcss";
+@import "podalls-form-builder/styles";
+
+@source "../../node_modules/podalls-form-builder/dist";
+```
+
+**Alternative:** If you still use a config file (legacy compatibility):
 
 ```typescript
+// tailwind.config.ts
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/podalls-form-builder/dist/**/*.{js,jsx,ts,tsx}' // Add this
-  ],
-  theme: {
-    extend: {}
-  },
-  plugins: []
+    './node_modules/podalls-form-builder/dist/**/*.{js,jsx,ts,tsx}'
+  ]
 }
 
 export default config

@@ -105,15 +105,16 @@ FormBuilder (src/components/form-builder.tsx)
 ## Styling
 
 - **Tailwind CSS 4+** required as peer dependency
-- Consumers must add package to tailwind.config content array:
-  ```typescript
-  content: [
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/podalls-form-builder/dist/**/*.{js,jsx,ts,tsx}'
-  ]
+- **Uses Tailwind 4's CSS-based config** with `@theme inline` directive in styles/globals.css
+- Consumers should import styles using Tailwind 4 approach:
+  ```css
+  @import "tailwindcss";
+  @import "podalls-form-builder/styles";
+  @source "../../node_modules/podalls-form-builder/dist";
   ```
+- Theme uses modern **OKLCH color space** for all colors
 - Uses shadcn/ui component patterns (src/ui/ directory)
-- Dark mode support via Tailwind's dark mode
+- Dark mode support via `.dark` class selector
 
 ## Common Development Patterns
 
